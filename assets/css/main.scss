@@ -1,0 +1,1332 @@
+@import "sass/variables", "sass/mixins", "sass/global", "sass/components",
+  "sass/navbar", "sass/footer";
+
+/********************* Start Home section *********************/
+
+.home-sec {
+  position: relative;
+  height: 100vh;
+
+  @media screen and (max-width: $screen-md) {
+    height: 500px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: $black, $alpha: 0.5);
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -2;
+    .home-img {
+      width: 100%;
+      // height: 100%;
+      height: 100vh;
+      object-fit: cover;
+
+      @media screen and (max-width: $screen-md) {
+        height: 500px;
+      }
+    }
+  }
+
+  &.sm {
+    height: 240px;
+
+    .home-slider {
+      .home-img {
+        height: 240px;
+      }
+    }
+  }
+
+  .owl-dots {
+    display: none !important;
+  }
+}
+
+/********************* End Home section *********************/
+
+/********************* Start Banner section *********************/
+.banner-sec {
+  @media screen and (max-width: $screen-xxs) {
+    display: none;
+  }
+}
+
+.banner-container {
+  @include center;
+  gap: 30px;
+
+  @media screen and (max-width: $screen-lg) {
+    gap: 10px;
+    // display: none;
+  }
+
+  .banner-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @media screen and (max-width: $screen-lg) {
+      gap: 8px;
+    }
+
+    .banner-img {
+      max-width: 180px;
+      max-height: 155px;
+
+      @media screen and (max-width: $screen-lg2) {
+        max-width: 150px;
+      }
+
+      @media screen and (max-width: $screen-lg) {
+        max-width: 90px;
+      }
+
+      @media screen and (max-width: $screen-sm) {
+        max-width: 80px;
+      }
+
+      @media screen and (max-width: $screen-xs) {
+        max-width: 60px;
+      }
+    }
+
+    .banner-ic {
+      max-width: 90px;
+      max-height: 90px;
+
+      #{$ltr} & {
+        transform: rotate(180deg);
+      }
+
+      @media screen and (max-width: $screen-lg2) {
+        max-width: 55px;
+      }
+
+      @media screen and (max-width: $screen-lg) {
+        max-width: 35px;
+      }
+
+      @media screen and (max-width: $screen-sm) {
+        max-width: 25px;
+      }
+    }
+
+    &:last-child {
+      .banner-ic {
+        display: none;
+      }
+    }
+  }
+}
+
+/********************* End Banner section *********************/
+
+/********************* Start Services section *********************/
+
+.cards-slider {
+  position: relative;
+  margin-bottom: 40px;
+
+  .owl-stage-outer {
+    &.p-1 {
+      @media screen and (max-width: $screen-xs) {
+        padding: 4px 0 !important;
+      }
+    }
+  }
+
+  .owl-nav {
+    position: absolute;
+    top: -88px;
+    @include dir-right(105px);
+    display: flex;
+    gap: 5px;
+    @media screen and (max-width: $screen-sm) {
+      top: -83px;
+      @include dir-right(91px);
+    }
+  }
+
+  .owl-prev,
+  .owl-next {
+    @include circle($btn-height);
+    border: 1px solid $main !important;
+    background-color: $main !important;
+    color: $white !important;
+    @include center;
+    font-size: 16px !important;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: $main-transition;
+
+    #{$ltr} & {
+      transform: rotateY(180deg)
+    }
+
+    &:hover {
+      color: $main !important;
+    }
+
+    @media screen and (max-width: $screen-sm) {
+      @include circle(35px);
+      font-size: 14px !important;
+    }
+
+    @media screen and (max-width: $screen-xxs) {
+      display: none;
+    }
+  }
+}
+
+.product-card {
+  border-radius: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: $white;
+
+  .img {
+    border-radius: 8px;
+    overflow: hidden;
+
+    .product-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: $main-transition;
+
+      @media screen and (max-width: $screen-md) {
+        height: 180px;
+      }
+    }
+  }
+
+  .product-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+
+    @media screen and (max-width: $screen-md) {
+      gap: 7px;
+    }
+
+    .product-name {
+      font-size: 18px;
+      // font-family: fontDemi;
+      font-weight: 700;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      height: 26px;
+      margin-bottom: 0;
+
+      @media screen and (max-width: $screen-md) {
+        font-size: 16px;
+      }
+    }
+
+    .product-subtitle {
+      color: $black;
+      line-height: 25px;
+      font-size: 15px;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      height: 52px;
+    }
+
+    .product-footer {
+      @include between;
+      font-size: 15px;
+      gap: 15px;
+
+      .main-btn {
+        min-width: 125px;
+      }
+    }
+  }
+
+  &:hover {
+    .img {
+      .product-img {
+        transform: scale(1.1) rotate(-5deg);
+
+        @media screen and (max-width: $screen-xs) {
+          transform: scale(1.2) rotate(-5deg);
+        }
+      }
+    }
+  }
+
+  .anchor {
+    font-size: 15px;
+    color: $main;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      @include dir-left(0 !important);
+    }
+  }
+}
+
+/********************* End Services section *********************/
+
+/********************* Start About section *********************/
+
+.about-sec {
+  background-color: $sec;
+  position: relative;
+  overflow: hidden;
+
+  .bg_sec {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+
+  .bg_sec2 {
+    position: absolute;
+    top: -20px;
+    // left: 0;
+    @include dir-right(0);
+    width: 80px;
+    height: 80px;
+    z-index: 1;
+    // object-fit: cover;
+
+    @media screen and (max-width: $screen-md) {
+      width: 50px;
+      height: 50px;
+      display: none;
+    }
+  }
+
+  .about-container {
+    @include between;
+    gap: 35px;
+
+    @media screen and (max-width: $screen-md) {
+      flex-direction: column-reverse;
+    }
+
+    .about-img {
+      width: 500px;
+      object-fit: cover;
+      height: 350px;
+      border-radius: 8px;
+
+      @media screen and (max-width: $screen-lg) {
+        width: 325px;
+        height: 290px;
+      }
+
+      @media screen and (max-width: $screen-md) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        opacity: 0.1;
+      }
+    }
+
+    .about-content {
+      display: grid;
+      row-gap: 18px;
+
+      @media screen and (max-width: $screen-lg) {
+        row-gap: 14px;
+      }
+
+      @media screen and (max-width: $screen-md) {
+        justify-items: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .logo {
+        max-width: 80px;
+        max-height: 90px;
+      }
+
+      .about-title {
+        font-size: 20px;
+        font-weight: 700;
+
+        @media screen and (max-width: $screen-lg) {
+          font-size: 18px;
+        }
+      }
+
+      .about-text {
+        line-height: 26px;
+
+        @media screen and (max-width: $screen-md) {
+          text-align: center;
+        }
+      }
+
+      .main-btn {
+        width: fit-content;
+      }
+    }
+  }
+}
+
+/********************* End About section *********************/
+
+/********************* Start text section *********************/
+
+.text-sec {
+  position: relative;
+  padding: 140px 0;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 2;
+
+  @media screen and (max-width: $screen-lg) {
+    padding: 100px 0;
+  }
+
+  @media screen and (max-width: $screen-sm) {
+    padding: 70px 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: $black, $alpha: 0.7);
+    z-index: 1;
+  }
+
+  .background_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  }
+
+  .brand-text {
+    text-align: center;
+    font-size: 32px;
+    color: $white;
+    position: relative;
+    z-index: 3;
+
+    @media screen and (max-width: $screen-lg) {
+      font-size: 28px;
+    }
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: 24px;
+    }
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: 20px;
+    }
+  }
+}
+
+/********************* End text section *********************/
+
+/********************* Start brand section *********************/
+
+.clients-slider {
+  .owl-stage-outer {
+    padding: 20px 0;
+
+    .owl-item {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+.client-item {
+  background-color: $white;
+  box-shadow: $main-shadow;
+  padding: 15px 20px;
+  @include center;
+  width: 200px;
+  height: 100px;
+  border-radius: 12px;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    @include circle(40px);
+    background-color: $sec;
+    z-index: -1;
+  }
+
+  &::after {
+    top: -8px;
+    @include dir-right(-8px);
+  }
+
+  &::before {
+    bottom: -8px;
+    @include dir-left(-8px);
+  }
+}
+
+.brand-img {
+  max-width: 80px;
+  max-height: 75px;
+}
+
+/********************* End brand section *********************/
+
+/********************* Start reviews section *********************/
+
+.customer-reviews {
+  overflow: hidden;
+}
+
+.reviews-slider {
+  .center {
+    .review-card {
+      background-color: $sec;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .owl-dots {
+    margin-top: 35px;
+    @include center;
+    gap: 7px;
+
+    .owl-dot {
+      @include circle(10px);
+      background-color: $light !important;
+      transition: $main-transition;
+
+      &.active {
+        background-color: $main !important;
+      }
+    }
+  }
+}
+
+.review-card {
+  background-color: $white;
+  border-radius: 15px;
+  padding: 25px 20px;
+  box-shadow: $main-shadow;
+  transition: $main-transition;
+  transform: scale(0.8);
+  opacity: 0.7;
+
+  @media screen and (max-width: $screen-md) {
+    padding: 15px 10px;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .review-img {
+    @include circle(65px !important);
+    object-fit: cover;
+    box-shadow: $main-shadow;
+
+    @media screen and (max-width: $screen-md) {
+      @include circle(55px !important);
+    }
+  }
+
+  .name {
+    font-size: 19px;
+    font-weight: 700;
+    color: $black;
+    margin-bottom: 5px;
+
+    @media screen and (max-width: $screen-md) {
+      font-size: 17px;
+    }
+  }
+
+  .jop {
+    font-size: 17px;
+    color: $light2;
+
+    @media screen and (max-width: $screen-md) {
+      font-size: 16px;
+    }
+  }
+
+  .text-con {
+    position: relative;
+    margin-top: 18px;
+
+    @media screen and (max-width: $screen-md) {
+      margin-top: 12px;
+    }
+
+    .info {
+      // text-align: center;
+      line-height: 25px;
+      font-size: 16px;
+
+      @media screen and (max-width: $screen-md) {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+/********************* End reviews section *********************/
+
+/********************* Start Cart section *********************/
+
+// Code Inputs
+.code-inputs {
+  .main-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .input-me {
+      min-height: 42px !important;
+      border-radius: 5px;
+    }
+
+    .main-btn {
+      height: 42px;
+      border-radius: 5px;
+
+      @media screen and (max-width:$screen-xs) {
+        min-width: 90px;
+      }
+    }
+  }
+
+  &.lg {
+    .main-input {
+      .input-me {
+        min-height: 48px !important;
+      }
+
+      .main-btn {
+        height: 48px;
+      }
+    }
+  }
+}
+
+.pro-buy-item {
+  border-bottom: 1px solid $light3;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  .pro-buy-top {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+
+    @media screen and (max-width: $screen-md) {
+      gap: 15px;
+    }
+
+    @media screen and (max-width: $screen-xs) {
+      gap: 10px;
+      align-items: center;
+    }
+
+    .img {
+      width: 170px;
+      height: 150px;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      @media screen and (max-width: $screen-xs) {
+        width: 100%;
+        height: 180px;
+      }
+
+      &.sm {
+        width: 160px;
+        height: 130px;
+
+        @media screen and (max-width: $screen-xs) {
+          width: 100%;
+          height: 180px;
+        }
+      }
+
+      .buy-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: $main-transition;
+      }
+    }
+
+    .pro-buy-content {
+      flex: 1;
+      @media screen and (max-width: $screen-xs) {
+        width: 100%;
+        flex: auto;
+      }
+
+      .pro-buy-head {
+        @include between;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+        gap: 15px;
+        width: 100%;
+
+        .title {
+          font-size: 17px;
+          font-weight: 700;
+
+          @media screen and (max-width: $screen-xs) {
+            font-size: 16px;
+          }
+
+          &.lg {
+            font-size: 16px;
+            font-family: fontDemi;
+          }
+        }
+
+        .sm-btn {
+          flex-shrink: 0;
+        }
+
+        .pro-icon {
+          color: $main;
+          font-size: 16px;
+
+          @media screen and (max-width: $screen-md) {
+            display: none;
+          }
+        }
+
+        .number-input{
+          @media screen and (max-width:$screen-lg) {
+            width: 130px;
+            padding: 12px 10px;
+          }
+
+          .btn-num{
+            @media screen and (max-width:$screen-lg) {
+              width: 22px;
+              height: 22px;
+            } 
+          }
+        }
+      }
+
+      .buy-buttons {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-top: 14px;
+
+        .buy-btn {
+          padding: 0;
+          font-size: 16px;
+          color: $light5;
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          cursor: pointer;
+          background-color: transparent;
+          outline: none;
+
+          &.blue {
+            .ic {
+              color: $main;
+            }
+          }
+
+          &.red {
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+
+  .pro-buy-down {
+    font-size: 15px;
+    margin-top: 15px;
+    color: $light5;
+    width: 400px;
+    line-height: 1.7;
+    @media screen and (max-width: $screen-sm) {
+      width: 100%;
+    }
+  }
+
+  &:hover {
+    .buy-img {
+      transform: rotate(-3deg) scale(1.1);
+    }
+  }
+}
+
+// summary-item
+.summary-item {
+  @include between;
+  gap: 8px;
+  background-color: $white;
+  padding: 24px 22px;
+
+  &:nth-child(even) {
+    padding: 15px 22px;
+    background-color: $white3;
+  }
+
+  .first {
+    color: $light5;
+    font-size: 16px;
+    font-family: fontMed;
+  }
+
+  .second {
+    color: $main;
+    font-family: fontDemi;
+    font-size: 15px;
+  }
+
+  &.total {
+    .first {
+      font-family: fontDemi;
+      color: $black;
+    }
+  }
+}
+
+// done-section
+.done-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+
+  .done-img {
+    width: 205px;
+    height: 105px;
+
+    @media screen and (max-width: $screen-xs) {
+      width: 175px;
+      height: 86px;
+    }
+
+    @media screen and (max-width: $screen-xxs) {
+      width: 165px;
+      height: 80px;
+    }
+  }
+
+  .done-text {
+    font-size: 20px;
+    color: $light5;
+    font-family: fontDemi;
+  }
+}
+/********************* End Cart section *********************/
+
+/********************* Start Payment section *********************/
+
+/************* Start payment Section *************/
+.payment-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  // margin-bottom: 25px;
+}
+
+.payment-item .payment-input {
+  display: none;
+}
+
+.payment-item .payment-input:checked + .payment-label {
+  background-color: #fff;
+  border-color: $main;
+}
+
+.payment-item .payment-input:checked + .payment-label .circle {
+  background-color: $main;
+}
+
+.payment-item .payment-input:checked + .payment-label .circle::after {
+  opacity: 1;
+}
+
+.payment-item .payment-input:checked + .payment-label {
+  background-color: #fff;
+  border-color: $main;
+}
+
+.payment-item .payment-label {
+  padding: 14px 15px;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background-color: #f7f7ff;
+  cursor: pointer;
+  border-radius: 6px;
+  // min-width: 220px;
+  border: 1px solid transparent;
+  transition: all 0.4s ease;
+}
+
+.payment-item .payment-label .right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.payment-item .payment-label .right .payment-img {
+  width: 28px;
+  height: 25px;
+}
+
+.payment-item .payment-label .right .name {
+  color: #3b3b3b;
+  font-size: 16px;
+  margin-bottom: 3px;
+  display: block;
+}
+
+.payment-item .payment-label .right .text {
+  color: #989898;
+  font-size: 12px;
+}
+
+.payment-item .payment-label .circle {
+  @include circle(22px);
+  background-color: #fff;
+  border: 1px solid $main;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.payment-item .payment-label .circle::after {
+  content: "";
+  height: 6px;
+  width: 11px;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  border-radius: 1px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%) rotate(-45deg);
+  transform-origin: center center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 425px) {
+  .payment-items{
+    gap: 15px 10px;
+  }
+
+  .payment-item .payment-label .right .name {
+    font-size: 15px;
+  }
+}
+
+/********************* End Payment section *********************/
+
+/********************* Start Done section *********************/
+
+.done-sec {
+  box-shadow: none !important;
+  .done-img {
+    max-width: 340px;
+    max-height: 340px;
+    margin-bottom: 25px;
+
+    @media screen and (max-width: $screen-sm) {
+      max-height: 235px;
+      max-width: 220px;
+    }
+  }
+
+  .title {
+    font-size: 24px;
+    color: $black;
+    @include center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-family: fontDemi;
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: 20px;
+    }
+
+    .title-ic {
+      max-width: 24px;
+
+      @media screen and (max-width: $screen-sm) {
+        max-width: 20px;
+      }
+    }
+  }
+
+  .info {
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-size: 16px;
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: 15px;
+    }
+  }
+}
+
+/********************* End Done section *********************/
+
+/***************** Start Side-Bar Section *********************/
+
+.side-bar {
+  width: calc(100% - 50px);
+
+  @media screen and (max-width: $screen-lg) {
+    width: 100%;
+  }
+}
+
+.side-links-con {
+  transition: all 0.8s cubic-bezier(0.68, -0.3, 0.265, 1.3);
+  background-color: $white;
+
+  @media screen and (max-width: $screen-lg) {
+    position: fixed;
+    top: 0;
+    @include dir-left(0);
+    height: 100vh;
+    width: 280px;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $white;
+    box-shadow: $nav-shadow;
+    z-index: 1101;
+    padding: 30px 20px;
+    gap: 8px;
+
+    #{$ltr} & {
+      transform: translateX(-150%);
+    }
+    #{$rtl} & {
+      transform: translateX(150%);
+    }
+
+    &.active {
+      transform: translateX(0) !important;
+    }
+
+    overflow-y: auto;
+    overflow-x: clip;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 25px;
+      background-color: $main;
+    }
+  }
+}
+
+.side-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  padding: 0 2px;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: $main-shadow;
+
+  .side-link {
+    padding: 12px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $black;
+    font-size: 16px;
+    position: relative;
+    transition: $main-transition;
+    border-radius: 6px;
+    overflow: hidden;
+    font-weight: 600;
+
+    .ic {
+      max-width: 18px;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      @include dir-left(0);
+      height: 100%;
+      width: 0;
+      transition: $main-transition;
+      background-color: $light4;
+      z-index: -1;
+    }
+
+    &.active {
+      // background-color: $main;
+      color: $main;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &.red {
+      background-color: $red;
+      color: $white;
+    }
+
+    &.transparent {
+      background-color: $white;
+      color: $red;
+      border: 1px solid $red;
+    }
+
+    &.center {
+      justify-content: center;
+    }
+  }
+
+  .order-links {
+    .side-link {
+      border-top: 1px solid $light;
+      color: $side-color;
+      font-weight: 500;
+    }
+  }
+}
+
+/***************** End Side-Bar Section *********************/
+
+/***************** Start Order Item Section *********************/
+
+// order-item
+.img-order-con {
+  width: 110px;
+  height: 110px;
+  border-radius: 8px;
+  @include center;
+  border: 1px solid $light4;
+  flex-shrink: 0;
+
+  @media screen and (max-width: $screen-sm) {
+    width: 90px;
+    height: 90px;
+  }
+
+  .order-img {
+    max-width: 45px;
+
+    @media screen and (max-width: $screen-sm) {
+      max-width: 40px;
+    }
+  }
+
+  &.lg {
+    width: 145px;
+    height: 120px;
+    border-width: 2px;
+
+    @media screen and (max-width: $screen-sm) {
+      width: 120px;
+      height: 100px;
+    }
+
+    .order-img {
+      width: 75px;
+      height: 42px;
+
+      @media screen and (max-width: $screen-sm) {
+        width: 60px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+.order-item {
+  padding: 7px;
+  border: 1px solid $border-color;
+  box-shadow: $main-shadow;
+  border-radius: 8px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .left-sec {
+    padding: 0px 22px;
+    width: 100%;
+
+    @media screen and (max-width: $screen-sm) {
+      padding: 0 10px;
+    }
+
+    .left-item {
+      @include between;
+      gap: 8px 4px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+      border-bottom: 1px solid $light4;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: $nav-shadow;
+    border-color: transparent;
+  }
+}
+
+/***************** End Order Item Section *********************/
+
+/***************** Start Product Detailes Section *********************/
+
+// Product Crad
+.product-content {
+  .product-name {
+    font-size: 18px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    color: $black;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @media screen and (max-width: $screen-xs) {
+      font-size: 16px;
+    }
+  }
+
+  .product-info {
+    .title {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .info {
+      // padding: 0 15px;
+      font-size: 16px;
+    }
+  }
+
+  .number-item {
+    color: $main;
+    margin-bottom: 15px;
+    font-size: 17px;
+    position: relative;
+    @include dir-padding-left(20px);
+
+    @media screen and (max-width:$screen-sm) {
+      font-size: 16px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      @include dir-left(0);
+      @include circle(6px);
+      background-color: $main;
+    }
+
+    &.red {
+      color: $red;
+    }
+  }
+}
+
+.product-carousel {
+  .owl-stage-outer {
+    border-radius: 10px;
+  }
+}
+
+.pro-slide-img {
+  width: 100%;
+  // min-height: 380px;
+  height: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+
+  @media screen and (max-width: $screen-lg) {
+    height: 340px !important;
+  }
+
+  @media screen and (max-width: $screen-sm) {
+    height: 240px !important;
+  }
+}
+/***************** End Product Detailes Section *********************/

@@ -1,0 +1,69 @@
+$ltr: 'html[lang="en"]';
+$rtl: 'html[lang="ar"]';
+/*********************************************************
+  // global color variables
+**********************************************************/
+
+// colors
+$main: #2898c6;
+$sec: #f7f7ff;
+$gray: #DBEEF6;
+$dark: #060042;
+$dark2: #D9D9D9;
+$dark3: #606E7D;
+$white: #fff;
+$white2: #989898;
+$white3: #FAFAFA;
+$black: #252122;
+$black2: #000;
+$light: #dbeded;
+$light2: #7E8485;
+$light3: #E5E5E5;
+$light4: #F3F3F3;
+$light5: #6c757d;
+$light6: #F0F0F4;
+$light7: #3DB9B4;
+$red: #EC2F2F;
+$orange: #E6C145;
+$yellow: #ffce2b;
+$border-color: #F0F2F7;
+$placholder-color: #adabab;
+$icon-color: #b1b0b0;
+$side-color: #939393;
+$text-color: #9EA0A4;
+$main-shadow: 0 0 5px 0 rgba($color: $black, $alpha: .1);
+$sec-shadow: 0 1px 3px rgb(0 0 0 / 4%);
+$side-shadow: 0 2px 5px rgb(0 0 0 / 5%);
+$nav-shadow: 0 3px 16px rgb(133 133 133 / 5%);
+$text-shadow: 0 2px 2px rgba($color: $dark, $alpha: .1);
+$img-shadow: 0 4px 4px 0 rgba($color: #000000, $alpha: 25%);
+$main-transition: all .3s ease;
+$btn-height: 40px;
+
+
+/*********************************************************
+  // Font variables
+**********************************************************/
+
+$font-normal: 'HSDream-Light', sans-serif, 'Font Awesome 5 Free';
+
+/*********************************************************
+  // spacing variables
+**********************************************************/
+// these variable/s is still not applied on all elements
+
+$space-between: 20px;
+$spacer: 10px;
+
+/*********************************************************
+  // screens
+**********************************************************/
+$screen-xxl: 1720px;
+$screen-xx: 1600px;
+$screen-xl: 1280px;
+$screen-lg2: 1200px;
+$screen-lg: 992px;
+$screen-md: 768px;
+$screen-sm: 576px;
+$screen-xs: 425px;
+$screen-xxs: 375px;

@@ -1,0 +1,134 @@
+.footer{
+    padding-top: 40px;
+    background-color: rgba($color: $sec, $alpha: .5);
+    position: relative;
+
+    .footer_bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        @media screen and (max-width:$screen-sm) {
+            object-fit: cover;
+        }
+    }
+
+    .foot-content{
+        .footer-head{
+            margin-bottom: 30px;
+            font-size: 18px;
+            color: $black;
+            width: fit-content;
+            font-family: fontDemi;
+
+            @media screen and (max-width:$screen-xs) {
+                font-size: 16px;
+            }
+        }
+
+        .foot-logo{
+            max-width: 80px;
+            max-height: 90px;
+
+            @media screen and (max-width:$screen-sm) {
+                max-width: 65px;
+                max-height: 85px;
+            }
+        }
+
+        .footer-info{
+            font-size: 15px;
+            color: $black;
+            // font-family: fontReg;
+            line-height: 1.6;
+            margin-top: 20px;
+        }
+
+        .footer-links{
+            .link{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 22px;
+                width: fit-content;
+                color: $black;
+                transition: $main-transition;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: transparent;
+
+                &:hover{
+                    #{$ltr} & {
+                        transform: translateX(5px);
+                    }
+                    #{$rtl} & {
+                        transform: translateX(-5px);
+                    }
+                    color: $main;
+                }
+
+                .ic{
+                    max-width: 17px;
+                    max-height: 17px;
+
+                    // #{$ltr} & {
+                    //     transform: rotate(180deg);
+                    // }
+
+                    &.app-link{
+                        max-width: 220px;
+                        height: 55px;
+                        border-radius: 5px;
+                    }
+                }
+
+                @media screen and (max-width:$screen-md){
+                    font-size: 15px;
+                }
+            }
+        }
+        
+        .foot-social{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .social-icon{
+                @include circle(37px);
+                @include center;
+                background-color: $main;
+                
+                .social-ic{
+                    transition: $main-transition;
+                    max-width: 18px;
+                    max-height: 20px;
+                    color: $white;
+                    font-size: 13px;
+                }
+
+                &:hover{
+                    .social-ic{
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.copy-right{
+    // background-color: $main;
+    padding: 14px 0;
+    margin-top: 15px;
+    border-top: 1px solid rgba($color: $black, $alpha: 0.1);
+
+    .text{  
+        text-align: center;
+        font-size: 14px;
+        color: $black;
+    }
+}
